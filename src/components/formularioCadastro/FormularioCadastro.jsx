@@ -3,13 +3,14 @@ import { Button, TextField, Switch, FormControlLabel } from '@material-ui/core';
 
 
 export default function FormularioCadastro({ aoEnviar }) {
-  
+
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(true);
 
+  const [erros, setErros] = useState({ cpf: { valido: true, texto:"" } });
 
   return (
     <>
@@ -43,8 +44,13 @@ export default function FormularioCadastro({ aoEnviar }) {
         <TextField
           value={cpf}
           onChange={event => { setCpf(event.target.value); }}
+          onBlur={event => {
+            setErros({ cpf: { valido: false, text: "O CPF deve conter 11 dígitos" }})
+          }}
+          error={!erros.cpf.valido}
+          helperText={erros.cpf.text}
           id="cpf"
-          label="CPF"
+          label="Digite seu cpf (apenas números)"
           variant="outlined"
           margin="normal"
           fullWidth
