@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Button, TextField, Switch, FormControlLabel } from '@material-ui/core';
 
 
-export default function FormularioCadastro() {
+export default function FormularioCadastro({ aoEnviar }) {
+  
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
@@ -14,9 +15,9 @@ export default function FormularioCadastro() {
     <>
       <form
         onSubmit={event => {
-          console.log(nome, sobrenome);
-
           event.preventDefault();
+
+          aoEnviar({ nome, sobrenome, cpf, novidades, promocoes });
         }}
       >
 
