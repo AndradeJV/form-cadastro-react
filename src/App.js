@@ -7,6 +7,7 @@ import FormularioCadastro from './components/formularioCadastro/FormularioCadast
 import envioFormulario from './functions/envioFormulario';
 import validarCpf from './functions/validarCpf';
 
+
 function App() {
   return (
     <Container component="article" maxWidth="sm">
