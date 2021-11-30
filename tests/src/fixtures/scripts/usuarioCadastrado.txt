@@ -1,0 +1,2 @@
+Dado um usuário com as credenciais corretas
+Então devo retornar um objeto com os dados cadastrados
